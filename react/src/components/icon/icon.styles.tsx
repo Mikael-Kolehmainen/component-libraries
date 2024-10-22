@@ -1,20 +1,15 @@
 import styled from "styled-components";
 
-export const IconContainer = styled.div`
-  background-color: ${(props) => props.theme.secondaryColor};
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  position: relative;
+interface IconContainerProps {
+  $width: string;
+  $height: string;
+}
 
+export const IconContainer = styled.div<IconContainerProps>`
   svg {
     display: block;
-    width: 40%;
-    height: 40%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: ${(props) => props.$width};
+    height: ${(props) => props.$height};
     color: ${(props) => props.theme.primaryColor};
   }
 `;

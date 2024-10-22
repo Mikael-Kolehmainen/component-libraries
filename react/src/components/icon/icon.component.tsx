@@ -1,14 +1,14 @@
-import { MouseEventHandler } from "react";
 import { IconContainer } from "./icon.styles";
 
 interface IconProps {
   IconComponent: React.FC;
-  onClick: MouseEventHandler;
+  width?: string
+  height?: string
 }
 
-const Icon = ({ IconComponent, onClick }: IconProps) => {
+const Icon = ({ IconComponent, width='70px', height='70px' }: IconProps) => {
   return (
-    <IconContainer onClick={onClick}>
+    <IconContainer $width={width} $height={height}>
       <IconComponent />
     </IconContainer>
   );
