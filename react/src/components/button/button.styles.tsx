@@ -7,15 +7,19 @@ export const ButtonContainer = styled.button`
   color: ${(props) => props.theme.buttonColor};
   background-color: ${(props) => props.theme.buttonBackgroundColor};
   font-weight: bold;
-  padding: 6px 10px;
+  padding: 4px 8px;
+  border: 2px solid ${(props) => props.theme.buttonBackgroundColor};
   height: fit-content;
   width: fit-content;
   border-radius: 5px;
-  border: none;
   outline: none;
 
+  &:focus-visible {
+    border: 2px solid ${(props) => props.theme.secondaryColor};
+  }
   &:hover {
     cursor: pointer;
     background-color: ${(props) => props.theme.buttonBackgroundHoverColor};
+    border: 2px solid ${(props) => props.theme.buttonBackgroundHoverColor};
   }
 `;
