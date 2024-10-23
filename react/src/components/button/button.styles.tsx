@@ -15,7 +15,7 @@ export const ButtonContainer = styled.button`
   outline: none;
 
   &:focus-visible {
-    border: 2px solid ${(props) => props.theme.secondaryColor};
+    border: 2px solid ${(props) => props.theme.buttonBackgroundHoverColor};
   }
   &:hover {
     cursor: pointer;

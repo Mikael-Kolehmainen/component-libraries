@@ -3,8 +3,17 @@ import { FaArrowRight, FaCheck, FaHouse, FaUser } from "react-icons/fa6";
 import Icon from "../../components/icon/icon.component";
 import { Container } from "./home.styles";
 import Button from "../../components/button/button.component";
+import Dropdown from "../../components/drodpown/dropdown.component";
+import Dictionary from "../../types/Dictionary";
 
 const Home = () => {
+  const fruits = {
+    apple: "Apple",
+    orange: "Orange",
+    banana: "Banana",
+    watermelon: "Watermelon"
+  } as Dictionary<string, string>;
+
   return (
     <section>
       <h1>Collection of components</h1>
@@ -37,6 +46,18 @@ const Home = () => {
           <Button onClick={() => {}}>
             Proceed <Icon IconComponent={FaArrowRight} height="20px" width="20px" color="#f3f4f6" style={{ marginTop: "3px" }} />
           </Button>
+        </Container>
+      </article>
+      <article>
+        <h2>Dropdowns</h2>
+        <ul>
+          <li>Takes in a dictionary to map the options with displayed value and behind-the-scenes value.</li>
+        </ul>
+        <p>Examples:</p>
+        <Container>
+          <Dropdown
+            options={fruits}
+          />
         </Container>
       </article>
     </section>
