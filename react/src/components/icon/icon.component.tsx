@@ -4,12 +4,14 @@ interface IconProps {
   IconComponent: React.FC;
   width?: string
   height?: string
+  color?: string
+  style?: React.CSSProperties
 }
 
-const Icon = ({ IconComponent, width='70px', height='70px' }: IconProps) => {
+const Icon = ({ IconComponent, width='70px', height='70px', color, style }: IconProps) => {
   return (
-    <IconContainer $width={width} $height={height}>
-      <IconComponent />
+    <IconContainer $width={width} $height={height} $color={color}>
+      <IconComponent style={style} />
     </IconContainer>
   );
 };
