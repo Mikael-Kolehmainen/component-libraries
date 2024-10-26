@@ -10,7 +10,7 @@ export const SearchBarContainer = styled.div`
 export const SearchBarIconContainer = styled.div`
   position: absolute;
   top: 50%;
-  left: 92.5%;
+  left: 94%;
   transform: translate(-50%, -50%);
   color: ${(props) => props.theme.buttonBackgroundColor};
 `;
@@ -20,7 +20,7 @@ interface SearchBarInputProps {
 }
 
 export const SearchBarInput = styled.input<SearchBarInputProps>`
-  padding: 10px 15px;
+  padding: 10px 45px 10px 15px;
   font-size: 16px;
   border: 2px solid ${(props) => props.theme.buttonBackgroundColor};
   border-radius: 10px;

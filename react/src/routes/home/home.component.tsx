@@ -7,6 +7,8 @@ import Button from "../../components/button/button.component";
 import Dropdown from "../../components/drodpown/dropdown.component";
 import Dictionary from "../../types/Dictionary";
 import SearchBar from "../../components/searchBar/searchBar.component";
+import { Customer } from "../../interfaces/Customer";
+import Table from "../../components/table/table.component";
 
 const Home = () => {
   // Dropdown stuff
@@ -20,6 +22,30 @@ const Home = () => {
 
   // searchBar stuff
   const [searchBarValue, setSearchBarValue] = useState<string>("");
+  const customers = [
+    {
+      id: 1,
+      firstName: "John",
+      lastName: "Doe",
+      email: "john.doe@domain.com",
+      phoneNumber: "+358401234567"
+    },
+    {
+      id: 2,
+      firstName: "Jane",
+      lastName: "Doe",
+      email: "jane.doe@domain.com",
+      phoneNumber: null,
+    },
+    {
+      id: 3,
+      firstName: "Matti",
+      lastName: "Meikäläinen",
+      email: null,
+      phoneNumber: null,
+    }
+  ] as Customer[];
+  const tableColumnNames = ["ID", "First Name", "Last Name", "Email", "Phone Number"];
 
   return (
     <section>
@@ -71,14 +97,20 @@ const Home = () => {
         </Container>
       </article>
       <article>
-        <h2>Search bar</h2>
+        <h2>Search bar & table</h2>
         <ul>
           <li>Search from a table based on values in different columns.</li>
+          <li>Table component takes in table data as an array of objects and column names as an array of strings.</li>
         </ul>
         <SearchBar
-          placeholder="Search"
+          placeholder="Search (ID, First Name, Last Name, Email, Phone Number)"
           searchValue={searchBarValue}
           setSearchValue={setSearchBarValue}
+          width="450px"
+        />
+        <Table
+          columnNames={tableColumnNames}
+          tableData={customers}
         />
       </article>
     </section>
