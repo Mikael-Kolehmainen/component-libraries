@@ -6,8 +6,10 @@ import { Container } from "./home.styles";
 import Button from "../../components/button/button.component";
 import Dropdown from "../../components/drodpown/dropdown.component";
 import Dictionary from "../../types/Dictionary";
+import SearchBar from "../../components/searchBar/searchBar.component";
 
 const Home = () => {
+  // Dropdown stuff
   const fruits = {
     apple: "Apple",
     orange: "Orange",
@@ -15,6 +17,9 @@ const Home = () => {
     watermelon: "Watermelon"
   } as Dictionary<string, string>;
   const [selectedFruit, setSelectedFruit] = useState<keyof typeof fruits>(Object.keys(fruits)[0]);
+
+  // searchBar stuff
+  const [searchBarValue, setSearchBarValue] = useState<string>("");
 
   return (
     <section>
@@ -64,6 +69,17 @@ const Home = () => {
           />
           <p>Selected fruit: {fruits[selectedFruit]}</p>
         </Container>
+      </article>
+      <article>
+        <h2>Search bar</h2>
+        <ul>
+          <li>Search from a table based on values in different columns.</li>
+        </ul>
+        <SearchBar
+          placeholder="Search"
+          searchValue={searchBarValue}
+          setSearchValue={setSearchBarValue}
+        />
       </article>
     </section>
   );

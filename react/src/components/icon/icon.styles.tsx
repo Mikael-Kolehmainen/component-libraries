@@ -3,7 +3,7 @@ import styled from "styled-components";
 interface IconContainerProps {
   $width: string;
   $height: string;
-  $color: string
+  $color?: string;
 }
 
 export const IconContainer = styled.div<IconContainerProps>`
