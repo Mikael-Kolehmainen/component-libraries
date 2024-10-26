@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { FaCog } from "react-icons/fa";
 import { FaArrowRight, FaCheck, FaHouse, FaUser } from "react-icons/fa6";
 import Icon from "../../components/icon/icon.component";
@@ -13,6 +14,7 @@ const Home = () => {
     banana: "Banana",
     watermelon: "Watermelon"
   } as Dictionary<string, string>;
+  const [selectedFruit, setSelectedFruit] = useState<keyof typeof fruits>(Object.keys(fruits)[0]);
 
   return (
     <section>
@@ -57,7 +59,10 @@ const Home = () => {
         <Container>
           <Dropdown
             options={fruits}
+            selectedOptionKey={selectedFruit}
+            onChange={(event) => setSelectedFruit(event.target.value)}
           />
+          <p>Selected fruit: {fruits[selectedFruit]}</p>
         </Container>
       </article>
     </section>

@@ -1,3 +1,4 @@
+import { ChangeEvent } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import Dictionary from "../../types/Dictionary";
 import Icon from "../icon/icon.component";
@@ -5,12 +6,14 @@ import { StyledSelect, StyledOption, DropdownContainer, DropdownIconContainer } 
 
 interface DropdownProps {
   options: Dictionary<string, string>
+  selectedOptionKey: string
+  onChange: (event: ChangeEvent<HTMLSelectElement>) => void
 }
 
-const Dropdown = ({ options }: DropdownProps) => {
+const Dropdown = ({ options, selectedOptionKey, onChange }: DropdownProps) => {
   return (
     <DropdownContainer>
-      <StyledSelect>
+      <StyledSelect onChange={(event) => onChange(event)} value={selectedOptionKey}>
         {Object.keys(options).map((optionKey, i) => {
           return (
             <StyledOption key={i} value={optionKey}>
